@@ -82,6 +82,7 @@ h2{
 	<div id='cover'>
 		<div id='cover-front'>
 			<h1>Happy Birthday!</h1>
+			<h1 style='font-size: 128px' id='age'></h1>
 		</div>
 		<div id='cover-back'></div>
 	</div>
@@ -89,20 +90,28 @@ h2{
 <script>
 var q = window.location.href.split('?');
 if(q.length > 1){
-q = q[q.length - 1];q = q.split('&');
+q = q[q.length - 1];
+q = q.split('&');
 for(var c = 0; c < q.length; c++){
   if(q[c].split('=')[0] === 'name'){
-    q = decodeURIComponent(q[c].split('=')[1]);
-    break;
+    var name = decodeURIComponent(q[c].split('=')[1]);
+  }
+  if(q[c].split('=')[0] === 'age'){
+    var age = decodeURIComponent(q[c].split('=')[1]);
   }
 }
-if(Array.isArray(q)){
-  q = 'John Citizen';
+if(typeof name === 'undefined'){
+  var name = 'John Citizen';
+}
+if(typeof age === 'undefined'){
+  var age = '';
 }
 }else{
-  q = 'John Citizen';
+  var name = 'John Citizen',
+      age = '';
 }
-document.getElementById('name').innerHTML = q;
+document.getElementById('name').innerHTML = name;
+document.getElementById('age').innerHTML = age;
 </script>
 </body>
 </html>
