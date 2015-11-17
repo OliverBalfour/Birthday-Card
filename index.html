@@ -99,9 +99,10 @@ for(var c = 0; c < q.length; c++){
   }
   if(q[c].split('=')[0] === 'age'){
     var age = decodeURIComponent(q[c].split('=')[1]);
-    age += age.substring(age.length - 1, age.length) === '1' ? 'st' :
-           age.substring(age.length - 1, age.length) === '2' ? 'nd' :
-           age.substring(age.length - 1, age.length) === '3' ? 'rd' : 'th';
+    age += age.substring(age.length - 2, age.length - 1) === '1' ? 'th' :
+             (age.substring(age.length - 1, age.length) === '1' ? 'st' :
+              age.substring(age.length - 1, age.length) === '2' ? 'nd' :
+              age.substring(age.length - 1, age.length) === '3' ? 'rd' : 'th');
   }
 }
 if(typeof name === 'undefined'){
