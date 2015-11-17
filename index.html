@@ -89,12 +89,13 @@ h2{
 <script>
 var q = window.location.href.split('?');
 if(q.length > 1){
-q = q[q.length - 1];
+q = q[q.length - 1];q = q.split('&');
 for(var c = 0; c < q.length; c++){
-  if(q[c].split('=')[0] === name){
+  if(q[c].split('=')[0] === 'name'){
     q = q[c].split('=')[1];
     break;
   }
+}
 }
 if(Array.isArray(q)){
   q = 'John Citizen';
