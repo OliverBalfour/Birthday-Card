@@ -81,8 +81,9 @@ h2{
 <div id='cover-cont'>
 	<div id='cover'>
 		<div id='cover-front'>
-			<h1>Happy Birthday!</h1>
-			<h1 style='font-size: 256px' id='age'></h1>
+			<h1>Happy</h1>
+			<h1 style='font-size: 128px' id='age'></h1>
+			<h1>Birthday!</h1>
 		</div>
 		<div id='cover-back'></div>
 	</div>
@@ -98,6 +99,9 @@ for(var c = 0; c < q.length; c++){
   }
   if(q[c].split('=')[0] === 'age'){
     var age = decodeURIComponent(q[c].split('=')[1]);
+    age += age.substring(age.length - 1, age.length) === '1' ? 'st' :
+           age.substring(age.length - 1, age.length) === '2' ? 'nd' :
+           age.substring(age.length - 1, age.length) === '3' ? 'rd' : 'th';
   }
 }
 if(typeof name === 'undefined'){
