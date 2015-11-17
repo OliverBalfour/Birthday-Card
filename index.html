@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Birthday Card</title>
+<meta charset='UTF-8' />
+</head>
+<body>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Tangerine:700);
+*{
+	font-family: 'Tangerine';
+	font-weight: 700;
+}
+body{
+	overflow: hidden;
+}
+h1{
+	font-size: 64px;
+	width: 100%;
+	text-align: center;
+	color: seagreen;
+}
+h2{
+	font-size: 26px;
+	width: 100%;
+	text-align: center;
+}
+#cover-cont{ 
+  width: 600px;
+  height: 400px;
+  position: absolute;
+	top: calc(50% - 200px);
+	left: calc(50% - 300px);
+  perspective: 800px;
+}
+#cover{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: 1s;
+	top: 0;
+	left: 0;
+}
+#cover-front, #cover-back{
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  backface-visibility: hidden;
+	left: 50%;
+}
+#cover-front{
+	background: antiquewhite;
+}
+#cover-back{
+  background: lightgreen;
+  transform: rotateY(180deg);
+}
+#cover:hover{
+  transform: rotateY(-180deg);
+}
+#card{
+	position: absolute;
+	top: calc(50% - 200px);
+	left: 50%;
+	height: 400px;
+	width: 300px;
+	padding: 20px;
+	box-sizing: border-box;
+	background: lightblue;
+}
+</style>
+<h2>Hover your mouse over the card</h2>
+<div id='card'>
+	<br /><br /><br />
+	<h2>Happy birthday to you,</h2>
+	<h2>Happy birthday to you,</h2>
+	<h2>Happy birthday to <span id='name'></span>,</h2>
+	<h2>Happy birthday to you!</h2>
+</div>
+<div id='cover-cont'>
+	<div id='cover'>
+		<div id='cover-front'>
+			<h1>Happy Birthday!</h1>
+		</div>
+		<div id='cover-back'></div>
+	</div>
+</div>
+<script>
+var q = window.location.href.split('?');
+q = q[q.length - 1];
+for(var c = 0; c < q.length; c++){
+  if(q[c].split('=')[0] === name){
+    q = q[c].split('=')[1];
+    break;
+  }
+}
+if(Array.isArray(q)){
+  q = 'John Citizen';
+}
+document.getElementById('name').innerHTML = q;
+</script>
+</body>
+</html>
