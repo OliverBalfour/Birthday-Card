@@ -88,6 +88,7 @@ h2{
 </div>
 <script>
 var q = window.location.href.split('?');
+if(q.length > 1){
 q = q[q.length - 1];
 for(var c = 0; c < q.length; c++){
   if(q[c].split('=')[0] === name){
@@ -96,6 +97,9 @@ for(var c = 0; c < q.length; c++){
   }
 }
 if(Array.isArray(q)){
+  q = 'John Citizen';
+}
+}else{
   q = 'John Citizen';
 }
 document.getElementById('name').innerHTML = q;
