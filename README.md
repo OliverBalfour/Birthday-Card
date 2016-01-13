@@ -1,3 +1,3 @@
-# Birthday Card Thing
+# CSS Birthday Card
 
-Yeah.
+Go to: http://tobsta.github.io/Birthday-Card/?name=name&age=age
